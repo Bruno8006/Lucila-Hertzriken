@@ -43,7 +43,7 @@ const ContactPage = () => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Mail className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-700">hello@camilagroch.com</span>
+                  <span className="text-gray-700">hello@lucilahertzriken.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="w-5 h-5 text-gray-600" />

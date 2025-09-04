@@ -1,14 +1,17 @@
 import React from "react";
 import { mockProjects } from "../data/mockData";
+import { useTranslation } from "../hooks/useTranslation";
 
 const WorkGrid = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-20 px-8 bg-white">
       <div className="container mx-auto">
         <div className="flex justify-between items-center mb-16">
-          <h2 className="text-4xl font-light tracking-wide text-gray-800">work</h2>
+          <h2 className="text-4xl font-light tracking-wide text-gray-800">{t('work.title')}</h2>
           <button className="px-6 py-2 border border-gray-300 text-sm tracking-wide text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors duration-300 rounded-full">
-            MAIS
+{t('work.more')}
           </button>
         </div>
         

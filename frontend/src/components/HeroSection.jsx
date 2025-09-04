@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "../hooks/useTranslation";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <div 
@@ -14,10 +17,10 @@ const HeroSection = () => {
       
       <div className="relative z-10 text-center text-white">
         <h1 className="text-6xl md:text-8xl font-light tracking-wide mb-6 opacity-90">
-          camila groch
+{t('hero.name')}
         </h1>
         <p className="text-xl md:text-2xl font-light tracking-wider opacity-80">
-          filmmaker & producer
+{t('hero.subtitle')}
         </p>
       </div>
       

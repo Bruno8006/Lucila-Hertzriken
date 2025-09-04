@@ -1,0 +1,68 @@
+{
+  "navigation": {
+    "about": "about",
+    "work": "work",
+    "services": "services",
+    "contact": "contact"
+  },
+  "hero": {
+    "name": "lucila hertzriken",
+    "subtitle": "filmmaker & producer"
+  },
+  "work": {
+    "title": "work",
+    "more": "MORE"
+  },
+  "about": {
+    "title": "about",
+    "description": "Lucila Hertzriken is a seasoned executive in the filmmaking industry, renowned for her strategic vision, creative sensibility, and extensive experience in delivering high-impact projects.",
+    "paragraph2": "Over the past 25 years, she has built a solid career in the audiovisual sector, working with renowned talents and companies across Brazil, Argentina, the United States, and Europe.",
+    "paragraph3": "Her expertise spans from creative conception to the execution of complex projects, always with a focus on excellence and innovation.",
+    "paragraph4": "Lucila is known for her ability to unite artistic vision and business strategy, creating unique solutions for each project.",
+    "paragraph5": "With an international network of contacts and partnerships, she facilitates co-productions and collaborations between different markets.",
+    "paragraph6": "Her commitment to quality and innovation makes her a reference in the Brazilian and international audiovisual market."
+  },
+  "services": {
+    "title": "services",
+    "grochFilms": {
+      "title": "Groch Films",
+      "description": "A bespoke production company dedicated to co-productions and international services. We specialize in bringing creative visions to life through strategic partnerships and innovative storytelling approaches."
+    },
+    "consultancy": {
+      "title": "Consultancy",
+      "description": "Partnering with businesses, projects, and initiatives in content and entertainment. Our expertise spans across project development, production strategy, and market positioning."
+    },
+    "learning": {
+      "title": "Learning",
+      "description": "Providing training and innovation-driven activities. We offer workshops, masterclasses, and educational programs for aspiring filmmakers and industry professionals."
+    },
+    "getInTouch": "Get in Touch"
+  },
+  "contact": {
+    "title": "contact",
+    "email": "hello@lucilahertzriken.com",
+    "phone": "+55 (11) 99999-9999",
+    "location": "São Paulo, Brazil",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
+    }
+  },
+  "footer": {
+    "description": "Filmmaker & Producer creating compelling visual stories that connect and inspire audiences worldwide.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "getInTouch": "Get In Touch",
+    "filmProduction": "Film Production",
+    "creativeConsultancy": "Creative Consultancy",
+    "trainingWorkshops": "Training & Workshops",
+    "internationalCoproductions": "International Co-productions",
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  }
+}

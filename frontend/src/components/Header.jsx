@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "../hooks/useTranslation";
 
 const Header = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const isActive = (path) => {
     return location.pathname === path;
@@ -15,7 +18,7 @@ const Header = () => {
           to="/" 
           className="text-2xl font-light tracking-wide text-gray-800 hover:text-gray-600 transition-colors duration-300"
         >
-          camila groch
+          lucila hertzriken
         </Link>
         
         <div className="flex items-center space-x-8">
@@ -25,7 +28,7 @@ const Header = () => {
               isActive('/about') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
-            about
+{t('navigation.about')}
           </Link>
           <Link 
             to="/work" 
@@ -33,7 +36,7 @@ const Header = () => {
               isActive('/work') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
-            work
+{t('navigation.work')}
           </Link>
           <Link 
             to="/services" 
@@ -41,7 +44,7 @@ const Header = () => {
               isActive('/services') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
-            services
+{t('navigation.services')}
           </Link>
           <Link 
             to="/contact" 
@@ -49,9 +52,9 @@ const Header = () => {
               isActive('/contact') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
-            contact
+{t('navigation.contact')}
           </Link>
-          <div className="w-6 h-4 bg-gradient-to-b from-green-500 via-yellow-400 to-blue-600 rounded-sm ml-2"></div>
+          <LanguageSwitcher />
         </div>
       </nav>
     </header>

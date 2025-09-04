@@ -99,14 +99,14 @@ export const mockTestimonials = [
     id: 1,
     name: "Maria Silva",
     role: "Director",
-    content: "Working with Camila was transformative. Her vision and expertise elevated our project beyond our expectations.",
+    content: "Working with Lucila was transformative. Her vision and expertise elevated our project beyond our expectations.",
     image: "https://images.unsplash.com/photo-1494790108755-2616c7e27934?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
     id: 2,
     name: "João Santos",
     role: "Producer",
-    content: "Camila's strategic approach and creative sensibility make her an invaluable partner in any production.",
+    content: "Lucila's strategic approach and creative sensibility make her an invaluable partner in any production.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   }
 ];

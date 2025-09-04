@@ -1,0 +1,68 @@
+{
+  "navigation": {
+    "about": "sobre",
+    "work": "trabalhos",
+    "services": "serviços",
+    "contact": "contato"
+  },
+  "hero": {
+    "name": "lucila hertzriken",
+    "subtitle": "cineasta & produtora"
+  },
+  "work": {
+    "title": "trabalhos",
+    "more": "MAIS"
+  },
+  "about": {
+    "title": "sobre",
+    "description": "Lucila Hertzriken é uma executiva experiente na indústria cinematográfica, reconhecida por sua visão estratégica, sensibilidade criativa e ampla experiência na entrega de projetos de alto impacto.",
+    "paragraph2": "Ao longo dos últimos 25 anos, ela construiu uma carreira sólida no setor audiovisual, trabalhando com talentos e empresas renomadas no Brasil, Argentina, Estados Unidos e Europa.",
+    "paragraph3": "Sua expertise abrange desde a concepção criativa até a execução de projetos complexos, sempre com foco na excelência e na inovação.",
+    "paragraph4": "Lucila é conhecida por sua capacidade de unir visão artística e estratégia de negócios, criando soluções únicas para cada projeto.",
+    "paragraph5": "Com uma rede internacional de contatos e parcerias, ela facilita co-produções e colaborações entre diferentes mercados.",
+    "paragraph6": "Seu compromisso com a qualidade e a inovação a torna uma referência no mercado audiovisual brasileiro e internacional."
+  },
+  "services": {
+    "title": "serviços",
+    "grochFilms": {
+      "title": "Groch Films",
+      "description": "Uma produtora sob medida dedicada a co-produções e serviços internacionais. Especializamo-nos em dar vida a visões criativas através de parcerias estratégicas e abordagens inovadoras de storytelling."
+    },
+    "consultancy": {
+      "title": "Consultoria",
+      "description": "Parceria com empresas, projetos e iniciativas em conteúdo e entretenimento. Nossa expertise abrange desenvolvimento de projetos, estratégia de produção e posicionamento de mercado."
+    },
+    "learning": {
+      "title": "Aprendizado",
+      "description": "Fornecendo treinamento e atividades orientadas à inovação. Oferecemos workshops, masterclasses e programas educacionais para aspirantes a cineastas e profissionais da indústria."
+    },
+    "getInTouch": "Entre em Contato"
+  },
+  "contact": {
+    "title": "contato",
+    "email": "hello@lucilahertzriken.com",
+    "phone": "+55 (11) 99999-9999",
+    "location": "São Paulo, Brasil",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "submit": "Enviar Mensagem",
+      "success": "Mensagem enviada com sucesso!"
+    }
+  },
+  "footer": {
+    "description": "Cineasta & Produtora criando histórias visuais convincentes que conectam e inspiram audiências em todo o mundo.",
+    "quickLinks": "Links Rápidos",
+    "services": "Serviços",
+    "getInTouch": "Entre em Contato",
+    "filmProduction": "Produção Cinematográfica",
+    "creativeConsultancy": "Consultoria Criativa",
+    "trainingWorkshops": "Treinamento & Workshops",
+    "internationalCoproductions": "Co-produções Internacionais",
+    "copyright": "Todos os direitos reservados.",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
+  }
+}

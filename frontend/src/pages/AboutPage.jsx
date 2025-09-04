@@ -12,7 +12,7 @@ const AboutPage = () => {
               <div className="aspect-[3/4] overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1494790108755-2616c7e27934?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Camila Groch"
+                  alt="Lucila Hertzriken"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -20,7 +20,7 @@ const AboutPage = () => {
             
             <div className="space-y-8">
               <p className="text-lg leading-relaxed text-gray-700">
-                Camila Groch is a seasoned executive in the filmmaking industry, renowned for her strategic vision, creative sensibility, and extensive experience in delivering high-impact projects.
+                Lucila Hertzriken is a seasoned executive in the filmmaking industry, renowned for her strategic vision, creative sensibility, and extensive experience in delivering high-impact projects.
               </p>
               
               <p className="text-lg leading-relaxed text-gray-700">
