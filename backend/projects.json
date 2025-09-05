@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": "1757022308667",
+    "title": "O Som e a Sílaba",
+    "description": "Follows Sarah Deighton, an autistic woman with musical talents, and Leonor Delis, her singing teacher navigating a personal crisis after divorce. Their bond through music shapes their life journeys.",
+    "year": "2024",
+    "type": "Series",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjqsFVxSa0sbapf-0QxyOBmLbbn8tjOqtCjg&s",
+    "order": "1",
+    "created_at": "2025-09-04T21:45:08.667Z",
+    "updated_at": "2025-09-04T21:53:49.398Z"
+  },
+  {
+    "id": "1757022501407",
+    "title": "Dois Tempo",
+    "description": "Follows two girls who travel through time and change places from 1922 to 2022.",
+    "year": "2023",
+    "type": "Series",
+    "image_url": "https://m.media-amazon.com/images/M/MV5BNDgwODkwODQtODg2Zi00NzZmLThmMTQtOGMzNGVhMGQ0NjIzXkEyXkFqcGc@._V1_.jpg",
+    "order": "2",
+    "created_at": "2025-09-04T21:48:21.407Z",
+    "updated_at": "2025-09-04T21:48:21.407Z"
+  }
+]

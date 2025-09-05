@@ -16,10 +16,13 @@ const AdminLogin = ({ onLogin }) => {
     setError('');
 
     try {
-      await apiService.login(credentials.username, credentials.password);
+      console.log('Tentando fazer login com:', credentials);
+      const result = await apiService.login(credentials.username, credentials.password);
+      console.log('Login realizado com sucesso:', result);
       onLogin();
     } catch (err) {
-      setError('Credenciais inválidas');
+      console.error('Erro no login:', err);
+      setError(`Erro no login: ${err.message}`);
     } finally {
       setLoading(false);
     }

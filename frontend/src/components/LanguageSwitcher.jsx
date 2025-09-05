@@ -7,45 +7,64 @@ const LanguageSwitcher = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center justify-center w-8 h-6 rounded-sm overflow-hidden hover:opacity-80 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+      className="flex items-center justify-center w-6 h-4 rounded-sm overflow-hidden hover:opacity-80 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300 shadow-sm"
       title={language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
     >
       {language === 'pt' ? (
         // Bandeira dos EUA (quando está em português, mostra opção para inglês)
-        <div className="w-full h-full relative">
-          <div className="absolute inset-0 bg-red-500"></div>
-          <div className="absolute inset-0 bg-white" style={{ height: '20%' }}></div>
-          <div className="absolute inset-0 bg-white" style={{ height: '40%', top: '20%' }}></div>
-          <div className="absolute inset-0 bg-white" style={{ height: '60%', top: '40%' }}></div>
-          <div className="absolute inset-0 bg-white" style={{ height: '80%', top: '60%' }}></div>
-          <div className="absolute inset-0 bg-white" style={{ height: '100%', top: '80%' }}></div>
+        <svg width="32" height="24" viewBox="0 0 32 24" className="w-full h-full">
+          {/* Listras vermelhas e brancas */}
+          <rect width="32" height="1.85" fill="#B22234"/>
+          <rect y="1.85" width="32" height="1.85" fill="white"/>
+          <rect y="3.7" width="32" height="1.85" fill="#B22234"/>
+          <rect y="5.55" width="32" height="1.85" fill="white"/>
+          <rect y="7.4" width="32" height="1.85" fill="#B22234"/>
+          <rect y="9.25" width="32" height="1.85" fill="white"/>
+          <rect y="11.1" width="32" height="1.85" fill="#B22234"/>
+          <rect y="12.95" width="32" height="1.85" fill="white"/>
+          <rect y="14.8" width="32" height="1.85" fill="#B22234"/>
+          <rect y="16.65" width="32" height="1.85" fill="white"/>
+          <rect y="18.5" width="32" height="1.85" fill="#B22234"/>
+          <rect y="20.35" width="32" height="1.85" fill="white"/>
+          <rect y="22.2" width="32" height="1.8" fill="#B22234"/>
+          
           {/* Cantão azul */}
-          <div className="absolute top-0 left-0 w-1/3 h-3/5 bg-blue-600"></div>
+          <rect width="12.8" height="14.8" fill="#3C3B6E"/>
+          
           {/* Estrelas (simplificadas) */}
-          <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-white rounded-full"></div>
-          <div className="absolute top-0.5 left-1 w-1 h-1 bg-white rounded-full"></div>
-          <div className="absolute top-0.5 left-1.5 w-1 h-1 bg-white rounded-full"></div>
-          <div className="absolute top-1 left-0.5 w-1 h-1 bg-white rounded-full"></div>
-          <div className="absolute top-1 left-1.5 w-1 h-1 bg-white rounded-full"></div>
-        </div>
+          <text x="1" y="3" fontSize="1.2" fill="white">★</text>
+          <text x="3" y="3" fontSize="1.2" fill="white">★</text>
+          <text x="5" y="3" fontSize="1.2" fill="white">★</text>
+          <text x="7" y="3" fontSize="1.2" fill="white">★</text>
+          <text x="9" y="3" fontSize="1.2" fill="white">★</text>
+          <text x="2" y="5" fontSize="1.2" fill="white">★</text>
+          <text x="4" y="5" fontSize="1.2" fill="white">★</text>
+          <text x="6" y="5" fontSize="1.2" fill="white">★</text>
+          <text x="8" y="5" fontSize="1.2" fill="white">★</text>
+          <text x="1" y="7" fontSize="1.2" fill="white">★</text>
+          <text x="3" y="7" fontSize="1.2" fill="white">★</text>
+          <text x="5" y="7" fontSize="1.2" fill="white">★</text>
+          <text x="7" y="7" fontSize="1.2" fill="white">★</text>
+          <text x="9" y="7" fontSize="1.2" fill="white">★</text>
+        </svg>
       ) : (
         // Bandeira do Brasil (quando está em inglês, mostra opção para português)
-        <div className="w-full h-full relative">
-          <div className="absolute inset-0 bg-green-500"></div>
+        <svg width="32" height="24" viewBox="0 0 32 24" className="w-full h-full">
+          {/* Fundo verde */}
+          <rect width="32" height="24" fill="#009639"/>
+          
           {/* Losango amarelo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div 
-              className="w-3 h-3 bg-yellow-400 transform rotate-45"
-              style={{
-                clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
-              }}
-            ></div>
-          </div>
+          <polygon points="16,2 30,12 16,22 2,12" fill="#FEDD00"/>
+          
           {/* Círculo azul */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-          </div>
-        </div>
+          <circle cx="16" cy="12" r="4.5" fill="#012169"/>
+          
+          {/* Faixa branca */}
+          <path d="M 10 12 Q 16 10 22 12 Q 16 14 10 12" fill="white" opacity="0.8"/>
+          
+          {/* Texto "ORDEM E PROGRESSO" (simplificado) */}
+          <text x="16" y="13" fontSize="1.5" fill="white" textAnchor="middle" fontFamily="serif">★</text>
+        </svg>
       )}
     </button>
   );

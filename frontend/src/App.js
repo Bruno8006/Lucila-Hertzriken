@@ -18,16 +18,22 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <ScrollToTop />
-          <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/work" element={<WorkPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/*" element={
+              <>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/work" element={<WorkPage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                </Routes>
+                <Footer />
+              </>
+            } />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </div>
     </LanguageProvider>

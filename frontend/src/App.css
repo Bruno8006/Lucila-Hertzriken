@@ -16,9 +16,30 @@
     background: #a8a8a8;
 }
 
+/* App container */
+.App {
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Image optimization */
+img {
+    image-rendering: auto;
+}
+
+/* Prevent image blur on scale */
+.group:hover img {
+    will-change: transform;
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+    overflow-y: auto;
+}
+
+body {
+    overflow-y: auto;
 }
 
 /* Custom selection */

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "../hooks/useTranslation";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 const ContactPage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,7 +14,7 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Mock form submission
-    alert("Thank you for your message! I'll get back to you soon.");
+    alert(t('contact.form.success'));
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -27,31 +29,31 @@ const ContactPage = () => {
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-8 py-16">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-6xl font-light tracking-wide text-gray-800 mb-16">contact</h1>
+          <h1 className="text-6xl font-light tracking-wide text-gray-800 mb-16">{t('contact.title')}</h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-light tracking-wide text-gray-800 mb-6">
-                  Let's create something together
+                  {t('contact.getInTouch')}
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  Whether you're looking for production services, consultancy, or collaboration opportunities, I'd love to hear from you.
+                  {t('contact.description')}
                 </p>
               </div>
               
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Mail className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-700">hello@lucilahertzriken.com</span>
+                  <span className="text-gray-700">{t('contact.email')}</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-700">+55 (11) 99999-9999</span>
+                  <span className="text-gray-700">{t('contact.phone')}</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="w-5 h-5 text-gray-600" />
-                  <span className="text-gray-700">São Paulo, Brazil</span>
+                  <span className="text-gray-700">{t('contact.location')}</span>
                 </div>
               </div>
               
@@ -69,7 +71,7 @@ const ContactPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm text-gray-700 mb-2">
-                      Name *
+                      {t('contact.form.name')} *
                     </label>
                     <input
                       type="text"
@@ -83,7 +85,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm text-gray-700 mb-2">
-                      Email *
+                      {t('contact.form.email')} *
                     </label>
                     <input
                       type="email"
@@ -99,7 +101,7 @@ const ContactPage = () => {
                 
                 <div>
                   <label htmlFor="subject" className="block text-sm text-gray-700 mb-2">
-                    Subject *
+                    {t('contact.form.subject')} *
                   </label>
                   <input
                     type="text"
@@ -114,7 +116,7 @@ const ContactPage = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-sm text-gray-700 mb-2">
-                    Message *
+                    {t('contact.form.message')} *
                   </label>
                   <textarea
                     id="message"
@@ -132,7 +134,7 @@ const ContactPage = () => {
                   className="w-full bg-gray-800 text-white py-4 px-6 hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center space-x-2"
                 >
                   <Send className="w-4 h-4" />
-                  <span className="tracking-wide">Send Message</span>
+                  <span className="tracking-wide">{t('contact.form.submit')}</span>
                 </button>
               </form>
             </div>

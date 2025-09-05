@@ -37,11 +37,12 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
   };
 
   const projectTypes = [
-    'Feature Film',
-    'Documentary',
-    'Short Film',
-    'Series'
+    'Longa-metragem',
+    'Documentário',
+    'Curta-metragem',
+    'Série'
   ];
+
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -71,7 +72,7 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
               value={formData.title}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
-              placeholder="Ex: Friends Having Fun"
+              placeholder="Ex: Amigos se Divertindo"
             />
           </div>
 
@@ -87,7 +88,7 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
               value={formData.description}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
-              placeholder="Ex: A heartwarming story about friendship and connection"
+              placeholder="Ex: Uma história tocante sobre amizade e conexão"
             />
           </div>
 

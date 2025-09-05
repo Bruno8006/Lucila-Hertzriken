@@ -28,11 +28,14 @@ const AdminPanel = ({ onLogout }) => {
 
   const handleCreateProject = async (projectData) => {
     try {
-      await apiService.createProject(projectData);
+      console.log('Criando projeto:', projectData);
+      const result = await apiService.createProject(projectData);
+      console.log('Projeto criado com sucesso:', result);
       setShowForm(false);
       loadProjects();
     } catch (err) {
-      setError('Erro ao criar projeto');
+      console.error('Erro ao criar projeto:', err);
+      setError(`Erro ao criar projeto: ${err.message}`);
     }
   };
 
@@ -92,9 +95,9 @@ const AdminPanel = ({ onLogout }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="admin-page min-h-screen bg-gray-50 overflow-y-auto">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="bg-white shadow-sm border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
@@ -124,7 +127,7 @@ const AdminPanel = ({ onLogout }) => {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="admin-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20">
         {error && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
             <p className="text-red-800">{error}</p>
@@ -140,63 +143,86 @@ const AdminPanel = ({ onLogout }) => {
           </div>
           
           <div className="divide-y divide-gray-200">
-            {projects.map((project, index) => (
-              <div key={project.id} className="px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0">
+            {projects.length === 0 ? (
+              <div className="px-6 py-12 text-center">
+                <div className="text-gray-500 mb-4">
+                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">Nenhum projeto encontrado</h3>
+                <p className="text-gray-500 mb-4">Comece criando seu primeiro projeto.</p>
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-300"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Criar Primeiro Projeto
+                </button>
+              </div>
+            ) : (
+              projects.map((project, index) => (
+                <div key={project.id} className="px-6 py-4 flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                                      <div className="flex-shrink-0">
                     <img
                       src={project.image_url}
                       alt={project.title}
-                      className="h-16 w-20 object-cover rounded-lg"
+                      className="h-16 w-20 object-cover object-center rounded-lg"
+                      onError={(e) => {
+                        console.error('Erro ao carregar imagem:', project.image_url);
+                        e.target.src = 'https://via.placeholder.com/80x64/cccccc/666666?text=No+Image';
+                      }}
                     />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                      {project.year} • {project.type}
-                    </p>
-                    <p className="text-sm text-gray-500 mt-1 line-clamp-2">
-                      {project.description}
-                    </p>
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {project.year} • {project.type}
+                      </p>
+                      <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => handleReorder(project.id, 'up')}
+                      disabled={index === 0}
+                      className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Mover para cima"
+                    >
+                      <ArrowUp className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => handleReorder(project.id, 'down')}
+                      disabled={index === projects.length - 1}
+                      className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Mover para baixo"
+                    >
+                      <ArrowDown className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => setEditingProject(project)}
+                      className="p-2 text-gray-400 hover:text-gray-600"
+                      title="Editar"
+                    >
+                      <Edit className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => handleDeleteProject(project.id)}
+                      className="p-2 text-gray-400 hover:text-red-600"
+                      title="Excluir"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </button>
                   </div>
                 </div>
-                
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => handleReorder(project.id, 'up')}
-                    disabled={index === 0}
-                    className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Mover para cima"
-                  >
-                    <ArrowUp className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() => handleReorder(project.id, 'down')}
-                    disabled={index === projects.length - 1}
-                    className="p-2 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Mover para baixo"
-                  >
-                    <ArrowDown className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() => setEditingProject(project)}
-                    className="p-2 text-gray-400 hover:text-gray-600"
-                    title="Editar"
-                  >
-                    <Edit className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() => handleDeleteProject(project.id)}
-                    className="p-2 text-gray-400 hover:text-red-600"
-                    title="Excluir"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>

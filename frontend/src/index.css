@@ -9,6 +9,8 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: auto;
+    height: 100vh;
 }
 
 code {
@@ -83,4 +85,32 @@ code {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Admin page scroll fix */
+.admin-page {
+  overflow-y: auto !important;
+  height: 100vh !important;
+  position: relative !important;
+}
+
+.admin-content {
+  overflow-y: auto !important;
+  max-height: calc(100vh - 120px) !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Ensure scroll works on all elements */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Image quality improvements */
+img {
+  image-rendering: auto;
 }
