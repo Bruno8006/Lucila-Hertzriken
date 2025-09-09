@@ -86,7 +86,7 @@ const HomeWorkGrid = () => {
             onClick={() => navigate('/trabalhos')}
             className="px-6 py-2 border border-gray-300 text-sm tracking-wide text-gray-600 hover:text-gray-800 hover:border-gray-400 transition-colors duration-300 rounded-full"
           >
-            Ver Todos os Projetos
+            🚀 Ver Todos os Projetos
           </button>
         </div>
         

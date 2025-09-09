@@ -1,0 +1,3 @@
+[33m389329e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: configurar Vercel para build correto do frontend
+[33m9827f78[m feat: implementar menu mobile responsivo com hambúrguer
+[33mf0cf704[m fix: corrigir conflito de dependências no GitHub Actions

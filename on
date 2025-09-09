@@ -1,0 +1,5 @@
+[33m9827f78[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: implementar menu mobile responsivo com hambúrguer
+[33mf0cf704[m fix: corrigir conflito de dependências no GitHub Actions
+[33m6f51f93[m feat: configurar GitHub Actions para monitorar deploy
+[33mab51aad[m test: verificar deploy automático
+[33m1ad911c[m fix: permitir CORS para qualquer origem
