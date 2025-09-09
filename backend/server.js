@@ -12,7 +12,11 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'https://frontend-r34mnfjv2-bruno-henrique-da-silvas-projects-824f9302.vercel.app',
+    'https://frontend-pjbbp07ra-bruno-henrique-da-silvas-projects-824f9302.vercel.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
