@@ -28,7 +28,7 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
         if (project.image_url.startsWith('http')) {
           setImagePreview(project.image_url);
         } else {
-          setImagePreview(`https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`);
+          setImagePreview(`https://lucila-hertzriken-backend.onrender.com/images/${project.image_url}`);
         }
       }
     }

@@ -145,7 +145,7 @@ const WorkPage = () => {
             >
               <div className="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300" style={{ aspectRatio: '2/3' }}>
                 <img 
-                  src={project.image_url.startsWith('http') ? project.image_url : `https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`} 
+                  src={project.image_url.startsWith('http') ? project.image_url : `https://lucila-hertzriken-backend.onrender.com/images/${project.image_url}`} 
                   alt={project.title}
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   style={{ 
