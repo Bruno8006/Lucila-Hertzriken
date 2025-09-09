@@ -5,6 +5,12 @@
     "services": "serviços",
     "contact": "contato"
   },
+  "nav": {
+    "about": "sobre",
+    "work": "trabalhos",
+    "services": "serviços",
+    "contact": "contato"
+  },
   "hero": {
     "name": "lucila hertzriken",
     "subtitle": "produtora executiva"

@@ -26,11 +26,11 @@ function App() {
                 <Header />
                 <Routes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/sobre" element={<AboutPage />} />
                   <Route path="/work" element={<WorkPage />} />
                   <Route path="/trabalhos" element={<WorkPage />} />
-                  <Route path="/services" element={<ServicesPage />} />
-                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/servicos" element={<ServicesPage />} />
+                  <Route path="/contato" element={<ContactPage />} />
                   <Route path="/projeto/:slug" element={<ProjectDetailPage />} />
                 </Routes>
                 <Footer />
