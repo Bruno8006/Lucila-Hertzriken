@@ -58,17 +58,49 @@ class ApiService {
     return this.request('/projects');
   }
 
-  async createProject(projectData) {
+  async createProject(projectData, imageFile) {
+    // Upload com arquivo é obrigatório
+    const formData = new FormData();
+    formData.append('image', imageFile);
+    formData.append('title', projectData.title);
+    formData.append('description', projectData.description);
+    formData.append('year', projectData.year);
+    formData.append('type', projectData.type);
+    formData.append('trailer_url', projectData.trailer_url || '');
+    formData.append('order', projectData.order);
+
     return this.request('/projects', {
       method: 'POST',
-      body: JSON.stringify(projectData),
+      headers: {
+        // Não definir Content-Type, deixar o browser definir com boundary
+        ...(this.token && { Authorization: `Bearer ${this.token}` }),
+      },
+      body: formData,
     });
   }
 
-  async updateProject(projectId, projectData) {
+  async updateProject(projectId, projectData, imageFile) {
+    const formData = new FormData();
+    
+    // Só adiciona imagem se foi selecionada uma nova
+    if (imageFile) {
+      formData.append('image', imageFile);
+    }
+    
+    formData.append('title', projectData.title);
+    formData.append('description', projectData.description);
+    formData.append('year', projectData.year);
+    formData.append('type', projectData.type);
+    formData.append('trailer_url', projectData.trailer_url || '');
+    formData.append('order', projectData.order);
+
     return this.request(`/projects/${projectId}`, {
       method: 'PUT',
-      body: JSON.stringify(projectData),
+      headers: {
+        // Não definir Content-Type, deixar o browser definir com boundary
+        ...(this.token && { Authorization: `Bearer ${this.token}` }),
+      },
+      body: formData,
     });
   }
 

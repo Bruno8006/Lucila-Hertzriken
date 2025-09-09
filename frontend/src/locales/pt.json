@@ -7,7 +7,7 @@
   },
   "hero": {
     "name": "lucila hertzriken",
-    "subtitle": "cineasta & produtora"
+    "subtitle": "produtora executiva"
   },
   "work": {
     "title": "trabalhos",
@@ -25,7 +25,7 @@
   "services": {
     "title": "serviços",
     "grochFilms": {
-      "title": "Groch Films",
+      "title": "Hertzriken",
       "description": "Uma produtora sob medida dedicada a co-produções e serviços internacionais. Especializamo-nos em dar vida a visões criativas através de parcerias estratégicas e abordagens inovadoras de storytelling."
     },
     "consultancy": {
@@ -40,7 +40,7 @@
   },
   "contact": {
     "title": "contato",
-    "email": "hello@lucilahertzriken.com",
+    "email": "contato@lucilahertzriken.com",
     "phone": "+55 (11) 99999-9999",
     "location": "São Paulo, Brasil",
     "form": {

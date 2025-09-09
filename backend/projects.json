@@ -2,13 +2,14 @@
   {
     "id": "1757022308667",
     "title": "O Som e a Sílaba",
-    "description": "Follows Sarah Deighton, an autistic woman with musical talents, and Leonor Delis, her singing teacher navigating a personal crisis after divorce. Their bond through music shapes their life journeys.",
+    "description": "Acompanhe Sarah Deighton, uma mulher autista com talentos musicais, e Leonor Delis, sua professora de canto, em uma crise pessoal após o divórcio. Seu vínculo com a música molda as jornadas de suas vidas.",
     "year": "2024",
-    "type": "Series",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjqsFVxSa0sbapf-0QxyOBmLbbn8tjOqtCjg&s",
-    "order": "1",
+    "type": "Série",
+    "image_url": "image-1757408655240-953984866.jpeg",
+    "order": "2",
     "created_at": "2025-09-04T21:45:08.667Z",
-    "updated_at": "2025-09-04T21:53:49.398Z"
+    "updated_at": "2025-09-09T09:04:15.247Z",
+    "trailer_url": "https://www.youtube.com/watch?v=MwajVEtOP0o"
   },
   {
     "id": "1757022501407",
@@ -16,9 +17,69 @@
     "description": "Follows two girls who travel through time and change places from 1922 to 2022.",
     "year": "2023",
     "type": "Series",
-    "image_url": "https://m.media-amazon.com/images/M/MV5BNDgwODkwODQtODg2Zi00NzZmLThmMTQtOGMzNGVhMGQ0NjIzXkEyXkFqcGc@._V1_.jpg",
-    "order": "2",
+    "image_url": "image-1757410461990-654287739.jpg",
+    "order": "3",
     "created_at": "2025-09-04T21:48:21.407Z",
-    "updated_at": "2025-09-04T21:48:21.407Z"
+    "updated_at": "2025-09-09T09:34:21.997Z",
+    "trailer_url": "https://youtu.be/Iq7cGJsGDs4"
+  },
+  {
+    "id": "1757382838149",
+    "title": "A Magia de Aruna",
+    "description": "Um mundo que atravessa uma crise solar. Nele, um Rio de Janeiro cinzento é o lugar onde vive a jovem Mima. Ela é uma adolescente que faz o possível para esconder seu estranho poder de hiperempatia enquanto a magia parece cada vez mais distante. No entanto, ao participar de uma competição importante, Mima acaba enfrentando um desafio que a faz perder o controle desse misterioso dom. Ao se afastar de seus companheiros de equipe, a jovem revela um feitiço realizado há 300 anos. E com isso, ela despertará três Bruxas Guardiãs.",
+    "year": "2023",
+    "type": "Série",
+    "image_url": "image-1757409835142-33666059.png",
+    "order": "2",
+    "created_at": "2025-09-09T01:53:58.149Z",
+    "updated_at": "2025-09-09T09:30:39.918Z",
+    "trailer_url": "https://youtu.be/q9xURvz3fCM"
+  },
+  {
+    "id": "1757383146201",
+    "title": "Tudo Igual... SQN",
+    "description": "Carol, de 16 anos, está passando por um período de grandes mudanças em sua vida. Por um lado, Carol precisa lidar com o casamento de sua mãe com seu novo namorado e o relacionamento iminente com seu futuro meio-irmão. Por outro, um novo ano letivo começa no ensino médio, no qual Carol inicia seu primeiro relacionamento real e vivencia diversas situações com seus amigos de longa data que também colocam a amizade deles à prova. Carol enfrenta os desafios típicos da adolescência e experimenta sentimentos que nunca havia sentido antes, aprendendo que o primeiro passo para a felicidade é se conhecer e também respeitar seus próprios sentimentos, mesmo que cometa um ou dois erros no caminho.",
+    "year": "2022-2023",
+    "type": "Série",
+    "image_url": "image-1757410654277-296869503.jpg",
+    "order": "3",
+    "created_at": "2025-09-09T01:59:06.201Z",
+    "updated_at": "2025-09-09T09:37:34.280Z",
+    "trailer_url": "https://youtu.be/foOfR5hRSZE"
+  },
+  {
+    "id": "1757397292968",
+    "title": "Tá Tudo Certo",
+    "description": "Pedro sonha em se tornar um músico famoso. Por acaso, conhece a cantora e compositora Ana, que lhe mostra a diversidade da vida e da música. Em sua jornada, Pedro começa a repensar sua definição de sucesso e precisa se confrontar com o que deseja para o seu futuro.",
+    "year": "2023",
+    "type": "Série",
+    "image_url": "image-1757411106973-843148974.webp",
+    "order": "5",
+    "created_at": "2025-09-09T05:54:52.968Z",
+    "updated_at": "2025-09-09T09:45:06.977Z",
+    "trailer_url": "https://youtu.be/LQETQADtfb0"
+  },
+  {
+    "id": "1757411508665",
+    "title": "Mila no Multiverso",
+    "description": "Em seu aniversário de 16 anos, Mila recebe um presente muito especial. Mila agora pode viajar entre diferentes universos paralelos para procurar sua mãe, Elis. Mas Mila logo descobre que o desaparecimento de sua mãe é apenas o começo da história e de sua jornada. Desde que Elis descobriu que vários universos existem em paralelo, ela tem sido caçada por um grupo misterioso chamado \"Os Operadores\". Mila precisa se adaptar a essa nova e extremamente perigosa situação e recebe o apoio de seus amigos Juliana, Vinícius e Pierre. Junto com eles, Mila viaja pelo imenso multiverso em busca de sua mãe, Elis. Uma aventura inacreditável, cheia de surpresas e perigos, aguarda os amigos.",
+    "year": "2023-2024",
+    "type": "Série",
+    "image_url": "image-1757411508643-69701142.jpeg",
+    "order": "6",
+    "created_at": "2025-09-09T09:51:48.665Z",
+    "updated_at": "2025-09-09T09:52:43.482Z",
+    "trailer_url": "https://youtu.be/ZhUSdsXaKOs"
+  },
+  {
+    "id": "1757411805923",
+    "title": "O Coro: Sucesso, Aqui Vou Eu",
+    "description": "Uma nova companhia musical no Brasil está à procura de jovens que saibam cantar e se apresentar, e eles se inscrevem para audições de todo o país em busca do sucesso. Esta é uma história de dificuldades e amizades no caminho para a fama.",
+    "year": "2022",
+    "type": "Feature Film",
+    "image_url": "image-1757411805902-223377704.jpg",
+    "order": "7",
+    "created_at": "2025-09-09T09:56:45.923Z",
+    "updated_at": "2025-09-09T09:56:45.923Z"
   }
 ]

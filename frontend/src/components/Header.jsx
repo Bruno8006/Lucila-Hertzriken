@@ -31,9 +31,9 @@ const Header = () => {
 {t('navigation.about')}
           </Link>
           <Link 
-            to="/work" 
+            to="/trabalhos" 
             className={`text-sm tracking-wide transition-colors duration-300 ${
-              isActive('/work') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
+              isActive('/trabalhos') || isActive('/work') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
 {t('navigation.work')}

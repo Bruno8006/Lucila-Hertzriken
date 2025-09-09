@@ -11,39 +11,47 @@ const AdminPanel = ({ onLogout }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    loadProjects();
+    const fetchData = async () => {
+      try {
+        console.log('Carregando projetos...');
+        setLoading(true);
+        const data = await apiService.getProjects();
+        console.log('Projetos carregados:', data.length);
+        setProjects(data);
+      } catch (err) {
+        console.error('Erro ao carregar projetos:', err);
+        setError('Erro ao carregar projetos');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
   }, []);
 
-  const loadProjects = async () => {
-    try {
-      setLoading(true);
-      const data = await apiService.getProjects();
-      setProjects(data);
-    } catch (err) {
-      setError('Erro ao carregar projetos');
-    } finally {
-      setLoading(false);
-    }
-  };
 
-  const handleCreateProject = async (projectData) => {
+  const handleCreateProject = async (projectData, imageFile) => {
     try {
       console.log('Criando projeto:', projectData);
-      const result = await apiService.createProject(projectData);
+      const result = await apiService.createProject(projectData, imageFile);
       console.log('Projeto criado com sucesso:', result);
       setShowForm(false);
-      loadProjects();
+      // Recarregar projetos
+      const data = await apiService.getProjects();
+      setProjects(data);
     } catch (err) {
       console.error('Erro ao criar projeto:', err);
       setError(`Erro ao criar projeto: ${err.message}`);
     }
   };
 
-  const handleUpdateProject = async (projectData) => {
+  const handleUpdateProject = async (projectData, imageFile) => {
     try {
-      await apiService.updateProject(editingProject.id, projectData);
+      await apiService.updateProject(editingProject.id, projectData, imageFile);
       setEditingProject(null);
-      loadProjects();
+      // Recarregar projetos
+      const data = await apiService.getProjects();
+      setProjects(data);
     } catch (err) {
       setError('Erro ao atualizar projeto');
     }
@@ -53,7 +61,9 @@ const AdminPanel = ({ onLogout }) => {
     if (window.confirm('Tem certeza que deseja excluir este projeto?')) {
       try {
         await apiService.deleteProject(projectId);
-        loadProjects();
+        // Recarregar projetos
+        const data = await apiService.getProjects();
+        setProjects(data);
       } catch (err) {
         setError('Erro ao excluir projeto');
       }
@@ -75,7 +85,9 @@ const AdminPanel = ({ onLogout }) => {
 
     try {
       await apiService.reorderProject(projectId, newOrder);
-      loadProjects();
+      // Recarregar projetos
+      const data = await apiService.getProjects();
+      setProjects(data);
     } catch (err) {
       setError('Erro ao reordenar projeto');
     }
@@ -166,7 +178,7 @@ const AdminPanel = ({ onLogout }) => {
                   <div className="flex items-center space-x-4">
                                       <div className="flex-shrink-0">
                     <img
-                      src={project.image_url}
+                      src={project.image_url.startsWith('http') ? project.image_url : `http://localhost:8000/images/${project.image_url}`}
                       alt={project.title}
                       className="h-16 w-20 object-cover object-center rounded-lg"
                       onError={(e) => {

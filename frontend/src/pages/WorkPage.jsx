@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 const WorkPage = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState("todos");
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,6 +45,17 @@ const WorkPage = () => {
     // Se está em inglês, converte para português
     const portugueseType = Object.keys(typeMapping).find(key => typeMapping[key] === projectType);
     return portugueseType || projectType;
+  };
+
+  // Função para gerar slug do projeto
+  const generateSlug = (title) => {
+    return title.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  // Função para navegar para o projeto
+  const handleProjectClick = (project) => {
+    const slug = generateSlug(project.title);
+    navigate(`/projeto/${slug}`);
   };
 
   const filteredProjects = filter === "todos" 
@@ -104,7 +117,7 @@ const WorkPage = () => {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                            {filteredProjects.length === 0 ? (
                    <div className="col-span-full text-center text-gray-600 py-16">
                      {filter === "todos" 
@@ -117,11 +130,12 @@ const WorkPage = () => {
             <div 
               key={project.id}
               className="group cursor-pointer"
+              onClick={() => handleProjectClick(project)}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden mb-4 rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300 max-w-sm mx-auto" style={{ aspectRatio: '3/4' }}>
+              <div className="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300 max-w-sm mx-auto" style={{ aspectRatio: '3/4' }}>
                 <img 
-                  src={project.image_url} 
+                  src={project.image_url.startsWith('http') ? project.image_url : `http://localhost:8000/images/${project.image_url}`} 
                   alt={project.title}
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   style={{ 
@@ -135,26 +149,14 @@ const WorkPage = () => {
                     e.target.src = 'https://via.placeholder.com/400x300/cccccc/666666?text=No+Image';
                   }}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/90 px-4 py-2 rounded-full">
-                    <span className="text-sm text-gray-800 tracking-wide">Ver Projeto</span>
-                  </div>
+                {/* Overlay com nome do projeto no hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/70 transition-all duration-300 flex items-center justify-center">
+                  <h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-4">
+                    {project.title}
+                  </h3>
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <h3 className="text-lg font-light tracking-wide text-gray-800 group-hover:text-gray-600 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {project.description}
-                </p>
-                <p className="text-xs text-gray-500 uppercase tracking-wider">
-                  {project.year} • {getDisplayType(project.type)}
-                </p>
-              </div>
             </div>
             ))
           )}

@@ -11,6 +11,7 @@ import WorkPage from "./pages/WorkPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 
 function App() {
   return (
@@ -27,8 +28,10 @@ function App() {
                   <Route path="/" element={<HomePage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/work" element={<WorkPage />} />
+                  <Route path="/trabalhos" element={<WorkPage />} />
                   <Route path="/services" element={<ServicesPage />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/projeto/:slug" element={<ProjectDetailPage />} />
                 </Routes>
                 <Footer />
               </>

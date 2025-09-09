@@ -1,12 +1,12 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
-import WorkGrid from "../components/WorkGrid";
+import HomeWorkGrid from "../components/HomeWorkGrid";
 
 const HomePage = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <WorkGrid />
+      <HomeWorkGrid />
     </div>
   );
 };

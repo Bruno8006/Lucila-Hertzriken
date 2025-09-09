@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const fs = require('fs').promises;
 const path = require('path');
+const multer = require('multer');
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +16,39 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
+
+// Servir arquivos estáticos (imagens)
+app.use('/images', express.static(path.join(__dirname, '..', 'frontend', 'public', 'images')));
+
+// Configuração do Multer para upload de imagens
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, '..', 'frontend', 'public', 'images');
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB limite
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = /jpeg|jpg|png|gif|webp/;
+    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedTypes.test(file.mimetype);
+    
+    if (mimetype && extname) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Apenas imagens são permitidas (JPEG, JPG, PNG, GIF, WebP)'));
+    }
+  }
+});
 
 // Configuração de segurança
 const SECRET_KEY = process.env.SECRET_KEY || 'your-super-secret-key-here';
@@ -43,6 +77,19 @@ async function saveProjects(projects) {
   } catch (error) {
     console.error('Erro ao salvar projetos:', error);
     return false;
+  }
+}
+
+// Função para deletar imagem
+async function deleteImage(imageUrl) {
+  try {
+    if (imageUrl && !imageUrl.startsWith('http')) {
+      const imagePath = path.join(__dirname, '..', 'frontend', 'public', 'images', imageUrl);
+      await fs.unlink(imagePath);
+      console.log('Imagem deletada:', imageUrl);
+    }
+  } catch (error) {
+    console.log('Erro ao deletar imagem (pode não existir):', error.message);
   }
 }
 
@@ -130,9 +177,14 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
-app.post('/api/projects', authenticateToken, async (req, res) => {
+app.post('/api/projects', authenticateToken, upload.single('image'), async (req, res) => {
   try {
-    const { title, description, year, type, image_url, order } = req.body;
+    const { title, description, year, type, trailer_url, order } = req.body;
+    
+    // Upload de imagem é obrigatório
+    if (!req.file) {
+      return res.status(400).json({ error: 'Imagem é obrigatória' });
+    }
     
     const newProject = {
       id: Date.now().toString(),
@@ -140,7 +192,8 @@ app.post('/api/projects', authenticateToken, async (req, res) => {
       description,
       year,
       type,
-      image_url,
+      image_url: req.file.filename,
+      trailer_url: trailer_url || null,
       order: order || 0,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
@@ -155,14 +208,15 @@ app.post('/api/projects', authenticateToken, async (req, res) => {
       res.status(500).json({ error: 'Erro ao salvar projeto' });
     }
   } catch (error) {
+    console.error('Erro ao criar projeto:', error);
     res.status(500).json({ error: 'Erro no servidor' });
   }
 });
 
-app.put('/api/projects/:id', authenticateToken, async (req, res) => {
+app.put('/api/projects/:id', authenticateToken, upload.single('image'), async (req, res) => {
   try {
     const { id } = req.params;
-    const updates = req.body;
+    const { title, description, year, type, trailer_url, order } = req.body;
     
     const projects = await loadProjects();
     const projectIndex = projects.findIndex(p => p.id === id);
@@ -171,9 +225,21 @@ app.put('/api/projects/:id', authenticateToken, async (req, res) => {
       return res.status(404).json({ error: 'Projeto não encontrado' });
     }
 
+    // Se foi enviada uma nova imagem, deletar a antiga
+    if (req.file) {
+      await deleteImage(projects[projectIndex].image_url);
+    }
+
     projects[projectIndex] = {
       ...projects[projectIndex],
-      ...updates,
+      title,
+      description,
+      year,
+      type,
+      trailer_url: trailer_url || null,
+      order: order || 0,
+      // Manter imagem atual se não foi enviada nova
+      image_url: req.file ? req.file.filename : projects[projectIndex].image_url,
       updated_at: new Date().toISOString()
     };
 
@@ -183,6 +249,7 @@ app.put('/api/projects/:id', authenticateToken, async (req, res) => {
       res.status(500).json({ error: 'Erro ao atualizar projeto' });
     }
   } catch (error) {
+    console.error('Erro ao atualizar projeto:', error);
     res.status(500).json({ error: 'Erro no servidor' });
   }
 });
@@ -192,11 +259,16 @@ app.delete('/api/projects/:id', authenticateToken, async (req, res) => {
     const { id } = req.params;
     
     const projects = await loadProjects();
-    const filteredProjects = projects.filter(p => p.id !== id);
+    const projectToDelete = projects.find(p => p.id === id);
     
-    if (projects.length === filteredProjects.length) {
+    if (!projectToDelete) {
       return res.status(404).json({ error: 'Projeto não encontrado' });
     }
+
+    // Deletar a imagem do projeto
+    await deleteImage(projectToDelete.image_url);
+
+    const filteredProjects = projects.filter(p => p.id !== id);
 
     if (await saveProjects(filteredProjects)) {
       res.json({ message: 'Projeto excluído com sucesso' });
@@ -204,6 +276,7 @@ app.delete('/api/projects/:id', authenticateToken, async (req, res) => {
       res.status(500).json({ error: 'Erro ao excluir projeto' });
     }
   } catch (error) {
+    console.error('Erro ao excluir projeto:', error);
     res.status(500).json({ error: 'Erro no servidor' });
   }
 });
