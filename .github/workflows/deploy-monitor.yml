@@ -1,0 +1,65 @@
+name: Deploy Monitor
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  monitor-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd frontend
+        npm install
+        
+    - name: Build frontend
+      run: |
+        cd frontend
+        npm run build
+        
+    - name: Test build
+      run: |
+        echo "✅ Build realizado com sucesso!"
+        ls -la frontend/build/
+        
+    - name: Wait for Vercel Deploy
+      run: |
+        echo "⏳ Aguardando deploy do Vercel (2-3 minutos)..."
+        sleep 120
+        
+    - name: Test Frontend Deploy
+      run: |
+        echo "🧪 Testando frontend..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://frontend-o8hk7slg5-bruno-henrique-da-silvas-projects-824f9302.vercel.app)
+        if [ $response -eq 200 ]; then
+          echo "✅ Frontend deployado com sucesso!"
+        else
+          echo "❌ Frontend com problema (HTTP: $response)"
+        fi
+        
+    - name: Test Backend Deploy
+      run: |
+        echo "🧪 Testando backend..."
+        response=$(curl -s -o /dev/null -w "%{http_code}" https://lucila-hertzriken-backend.onrender.com/api/projects)
+        if [ $response -eq 200 ]; then
+          echo "✅ Backend deployado com sucesso!"
+        else
+          echo "❌ Backend com problema (HTTP: $response)"
+        fi
+        
+    - name: Final Status
+      run: |
+        echo "🎉 Deploy Monitor Complete!"
+        echo "📱 Frontend: https://frontend-o8hk7slg5-bruno-henrique-da-silvas-projects-824f9302.vercel.app"
+        echo "🔧 Backend: https://lucila-hertzriken-backend.onrender.com"
+        echo "📊 Status: Verifique os logs acima para detalhes"

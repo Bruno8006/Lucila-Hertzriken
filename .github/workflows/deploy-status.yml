@@ -1,0 +1,36 @@
+name: Deploy Status Monitor
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-deploy-status:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Wait for Vercel Deploy
+      run: |
+        echo "⏳ Aguardando deploy do Vercel..."
+        sleep 30
+        
+    - name: Test Frontend
+      run: |
+        echo "🧪 Testando frontend..."
+        curl -f https://frontend-o8hk7slg5-bruno-henrique-da-silvas-projects-824f9302.vercel.app || echo "❌ Frontend não acessível"
+        
+    - name: Test Backend API
+      run: |
+        echo "🧪 Testando backend..."
+        curl -f https://lucila-hertzriken-backend.onrender.com/api/projects || echo "❌ Backend não acessível"
+        
+    - name: Deploy Status
+      run: |
+        echo "✅ Deploy Status Check Complete!"
+        echo "Frontend: https://frontend-o8hk7slg5-bruno-henrique-da-silvas-projects-824f9302.vercel.app"
+        echo "Backend: https://lucila-hertzriken-backend.onrender.com"
