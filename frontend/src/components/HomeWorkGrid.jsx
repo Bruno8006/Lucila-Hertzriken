@@ -108,7 +108,7 @@ const HomeWorkGrid = () => {
                 >
                   <div className="relative overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300 aspect-[3/5]">
                     <img 
-                      src={projects[0].image_url.startsWith('http') ? projects[0].image_url : `http://localhost:8000/images/${projects[0].image_url}`} 
+                      src={projects[0].image_url.startsWith('http') ? projects[0].image_url : `https://lucila-hertzriken-production.up.railway.app/images/${projects[0].image_url}`} 
                       alt={projects[0].title}
                       className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
@@ -142,7 +142,7 @@ const HomeWorkGrid = () => {
                     >
                       <div className="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-300 aspect-[4/5]">
                         <img 
-                          src={project.image_url.startsWith('http') ? project.image_url : `http://localhost:8000/images/${project.image_url}`} 
+                          src={project.image_url.startsWith('http') ? project.image_url : `https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`} 
                           alt={project.title}
                           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                           onError={(e) => {

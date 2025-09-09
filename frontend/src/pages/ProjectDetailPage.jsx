@@ -123,7 +123,7 @@ const ProjectDetailPage = () => {
           <div className="space-y-4">
             <div className="aspect-[3/4] rounded-lg overflow-hidden shadow-lg">
               <img
-                src={project.image_url.startsWith('http') ? project.image_url : `http://localhost:8000/images/${project.image_url}`}
+                src={project.image_url.startsWith('http') ? project.image_url : `https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`}
                 alt={project.title}
                 className="w-full h-full object-cover object-center"
                 onError={(e) => {

@@ -28,7 +28,7 @@ const ProjectForm = ({ project, onSubmit, onCancel }) => {
         if (project.image_url.startsWith('http')) {
           setImagePreview(project.image_url);
         } else {
-          setImagePreview(`http://localhost:8000/images/${project.image_url}`);
+          setImagePreview(`https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`);
         }
       }
     }

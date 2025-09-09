@@ -178,7 +178,7 @@ const AdminPanel = ({ onLogout }) => {
                   <div className="flex items-center space-x-4">
                                       <div className="flex-shrink-0">
                     <img
-                      src={project.image_url.startsWith('http') ? project.image_url : `http://localhost:8000/images/${project.image_url}`}
+                      src={project.image_url.startsWith('http') ? project.image_url : `https://lucila-hertzriken-production.up.railway.app/images/${project.image_url}`}
                       alt={project.title}
                       className="h-16 w-20 object-cover object-center rounded-lg"
                       onError={(e) => {
