@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex items-center space-x-8">
           <Link 
             to="/about" 
-            className={`text-sm tracking-wide transition-colors duration-300 ${
+            className={`text-lg tracking-wide transition-colors duration-300 ${
               isActive('/about') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
@@ -32,7 +32,7 @@ const Header = () => {
           </Link>
           <Link 
             to="/trabalhos" 
-            className={`text-sm tracking-wide transition-colors duration-300 ${
+            className={`text-lg tracking-wide transition-colors duration-300 ${
               isActive('/trabalhos') || isActive('/work') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
           <Link 
             to="/services" 
-            className={`text-sm tracking-wide transition-colors duration-300 ${
+            className={`text-lg tracking-wide transition-colors duration-300 ${
               isActive('/services') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >
@@ -48,7 +48,7 @@ const Header = () => {
           </Link>
           <Link 
             to="/contact" 
-            className={`text-sm tracking-wide transition-colors duration-300 ${
+            className={`text-lg tracking-wide transition-colors duration-300 ${
               isActive('/contact') ? 'text-gray-800 font-medium' : 'text-gray-600 hover:text-gray-800'
             }`}
           >

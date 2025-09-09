@@ -6,21 +6,21 @@
     "year": "2024",
     "type": "Série",
     "image_url": "image-1757408655240-953984866.jpeg",
-    "order": "2",
+    "order": "3",
     "created_at": "2025-09-04T21:45:08.667Z",
-    "updated_at": "2025-09-09T09:04:15.247Z",
+    "updated_at": "2025-09-09T13:06:46.553Z",
     "trailer_url": "https://www.youtube.com/watch?v=MwajVEtOP0o"
   },
   {
     "id": "1757022501407",
-    "title": "Dois Tempo",
-    "description": "Follows two girls who travel through time and change places from 1922 to 2022.",
+    "title": "Dois Tempos",
+    "description": "Dois Tempos é uma série brasileira de comédia, drama e fantasia produzida pela Cinefilm para o Star+. A trama se passa em dois períodos diferentes: em 2022, Paz (Sol Menezzes) é uma influenciadora digital de sucesso que tem seu legado ameaçado após ser vítima de um cancelamento na internet; enquanto isso, em 1922, Cecília (Mari Oliveira) é uma jovem que sonha em ser escritora, mas vê esse sonho se distanciar cada vez mais ao precisar aceitar um casamento arranjado. Mesmo vivendo em épocas diferentes, as mulheres são ligadas pelo sonho da liberdade para tomarem seus próprios rumos e decisões. Por terem esse objetivo em comum, o universo acaba fazendo com que as jovens viajem no tempo e troquem de corpo. Agora, enquanto Ceci se maravilha com as modernidades do século 21, Paz só quer voltar para a casa e se livrar dos desafios de 1922.",
     "year": "2023",
     "type": "Series",
     "image_url": "image-1757410461990-654287739.jpg",
     "order": "3",
     "created_at": "2025-09-04T21:48:21.407Z",
-    "updated_at": "2025-09-09T09:34:21.997Z",
+    "updated_at": "2025-09-09T13:06:49.296Z",
     "trailer_url": "https://youtu.be/Iq7cGJsGDs4"
   },
   {
@@ -30,9 +30,9 @@
     "year": "2023",
     "type": "Série",
     "image_url": "image-1757409835142-33666059.png",
-    "order": "2",
+    "order": "3",
     "created_at": "2025-09-09T01:53:58.149Z",
-    "updated_at": "2025-09-09T09:30:39.918Z",
+    "updated_at": "2025-09-09T13:06:36.589Z",
     "trailer_url": "https://youtu.be/q9xURvz3fCM"
   },
   {
@@ -44,7 +44,7 @@
     "image_url": "image-1757410654277-296869503.jpg",
     "order": "3",
     "created_at": "2025-09-09T01:59:06.201Z",
-    "updated_at": "2025-09-09T09:37:34.280Z",
+    "updated_at": "2025-09-09T13:06:40.012Z",
     "trailer_url": "https://youtu.be/foOfR5hRSZE"
   },
   {
@@ -54,9 +54,9 @@
     "year": "2023",
     "type": "Série",
     "image_url": "image-1757411106973-843148974.webp",
-    "order": "5",
+    "order": "3",
     "created_at": "2025-09-09T05:54:52.968Z",
-    "updated_at": "2025-09-09T09:45:06.977Z",
+    "updated_at": "2025-09-09T13:06:42.741Z",
     "trailer_url": "https://youtu.be/LQETQADtfb0"
   },
   {
@@ -66,9 +66,9 @@
     "year": "2023-2024",
     "type": "Série",
     "image_url": "image-1757411508643-69701142.jpeg",
-    "order": "6",
+    "order": "3",
     "created_at": "2025-09-09T09:51:48.665Z",
-    "updated_at": "2025-09-09T09:52:43.482Z",
+    "updated_at": "2025-09-09T13:06:44.462Z",
     "trailer_url": "https://youtu.be/ZhUSdsXaKOs"
   },
   {
@@ -76,10 +76,23 @@
     "title": "O Coro: Sucesso, Aqui Vou Eu",
     "description": "Uma nova companhia musical no Brasil está à procura de jovens que saibam cantar e se apresentar, e eles se inscrevem para audições de todo o país em busca do sucesso. Esta é uma história de dificuldades e amizades no caminho para a fama.",
     "year": "2022",
-    "type": "Feature Film",
+    "type": "Série",
     "image_url": "image-1757411805902-223377704.jpg",
     "order": "7",
     "created_at": "2025-09-09T09:56:45.923Z",
-    "updated_at": "2025-09-09T09:56:45.923Z"
+    "updated_at": "2025-09-09T11:51:57.845Z",
+    "trailer_url": null
+  },
+  {
+    "id": "1757415948985",
+    "title": "Não Foi Minha Culpa",
+    "description": "Todos os anos, durante quatro dias, os brasileiros se desprendem da realidade e vivem plenamente suas fantasias. Para o mundo, isso é a representação da tolerância racial, da liberdade sexual, da cordialidade e da exuberância artística. Mas, na realidade, o Brasil é uma nação injusta, racista, sexista, classista e violenta. Prova disso são os índices alarmantes de feminicídio: a cada quatro minutos, há relatos de agressões contra mulheres. O Carnaval é o elo entre nossas dez histórias inspiradas em fatos reais, contadas por diferentes pontos de vista e culminando simultaneamente. Com histórias do passado e do presente, essas revelações mostram as contradições de um povo ao lidar com sentimentos e conflitos universalmente compartilhados.",
+    "year": "2022",
+    "type": "Série",
+    "image_url": "image-1757416075964-58194204.jpg",
+    "trailer_url": "https://youtu.be/CqXdynAQ7ek",
+    "order": "8",
+    "created_at": "2025-09-09T11:05:48.985Z",
+    "updated_at": "2025-09-09T11:07:55.972Z"
   }
 ]

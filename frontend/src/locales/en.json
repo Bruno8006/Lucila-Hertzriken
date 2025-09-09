@@ -7,25 +7,35 @@
   },
   "hero": {
     "name": "lucila hertzriken",
-    "subtitle": "filmmaker & producer"
+    "subtitle": "executive producer"
   },
   "work": {
     "title": "work",
-    "more": "MORE"
+    "more": "MORE",
+    "filters": {
+      "all": "all",
+      "featureFilm": "Feature Film",
+      "documentary": "Documentary",
+      "shortFilm": "Short Film",
+      "series": "Series"
+    },
+    "noProjects": "No projects found. Add some projects in the admin panel.",
+    "noProjectsFilter": "No projects found for",
+    "loading": "Loading projects...",
+    "error": "Error loading projects"
   },
   "about": {
     "title": "about",
-    "description": "Lucila Hertzriken is a seasoned executive in the filmmaking industry, renowned for her strategic vision, creative sensibility, and extensive experience in delivering high-impact projects.",
-    "paragraph2": "Over the past 25 years, she has built a solid career in the audiovisual sector, working with renowned talents and companies across Brazil, Argentina, the United States, and Europe.",
-    "paragraph3": "Her expertise spans from creative conception to the execution of complex projects, always with a focus on excellence and innovation.",
-    "paragraph4": "Lucila is known for her ability to unite artistic vision and business strategy, creating unique solutions for each project.",
-    "paragraph5": "With an international network of contacts and partnerships, she facilitates co-productions and collaborations between different markets.",
-    "paragraph6": "Her commitment to quality and innovation makes her a reference in the Brazilian and international audiovisual market."
+    "description": "For the past twenty-nine years, I have dedicated myself to transforming ideas into television programs. During this time, I have led all stages of development and production, learning each step of the process along the way.",
+    "paragraph2": "My career includes experiences at renowned production companies, including Cinefilm, where I served as General Manager, supervising results, expanding business, and providing creative and strategic solutions for projects and clients.",
+    "paragraph3": "My experience spans from creative conception to execution of complex projects, always with a focus on excellence and innovation. I work with renowned talents and companies in Brazil, Argentina, and Europe.",
+    "paragraph4": "I am known for my ability to unite artistic vision and business strategy, creating unique solutions for each project and facilitating co-productions between different markets.",
+    "paragraph6": "My commitment to quality and innovation makes me a reference in the Brazilian and international audiovisual market, always seeking to elevate the standard of excellence in each project."
   },
   "services": {
     "title": "services",
-    "grochFilms": {
-      "title": "Groch Films",
+    "hertzriken": {
+      "title": "Hertzriken",
       "description": "A bespoke production company dedicated to co-productions and international services. We specialize in bringing creative visions to life through strategic partnerships and innovative storytelling approaches."
     },
     "consultancy": {
@@ -40,6 +50,8 @@
   },
   "contact": {
     "title": "contact",
+    "getInTouch": "Let's Talk",
+    "description": "I'm always open to new opportunities and creative partnerships. Get in touch to discuss how I can contribute to your next project.",
     "email": "hello@lucilahertzriken.com",
     "phone": "+55 (11) 99999-9999",
     "location": "São Paulo, Brazil",
@@ -52,8 +64,22 @@
       "success": "Message sent successfully!"
     }
   },
+  "project": {
+    "backToWork": "Back to Work",
+    "aboutProject": "About the Project",
+    "type": "Type",
+    "year": "Year",
+    "trailer": "Trailer",
+    "technologies": "Technologies",
+    "links": "Links",
+    "noDescription": "Description not available.",
+    "noYear": "Not specified",
+    "loading": "Loading project...",
+    "error": "Error loading project",
+    "notFound": "Project not found"
+  },
   "footer": {
-    "description": "Filmmaker & Producer creating compelling visual stories that connect and inspire audiences worldwide.",
+    "description": "Executive Producer specialized in development, production and strategy of audiovisual content.",
     "quickLinks": "Quick Links",
     "services": "Services",
     "getInTouch": "Get In Touch",

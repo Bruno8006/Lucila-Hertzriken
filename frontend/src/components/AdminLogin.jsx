@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Lock, User } from 'lucide-react';
+import { Lock, User, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import apiService from '../services/api';
 
 const AdminLogin = ({ onLogin }) => {
@@ -111,6 +112,16 @@ const AdminLogin = ({ onLogin }) => {
             </button>
           </div>
         </form>
+        
+        <div className="mt-6 text-center">
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+          >
+            <ArrowLeft className="h-4 w-4 mr-1" />
+            Voltar ao site
+          </Link>
+        </div>
       </div>
     </div>
   );

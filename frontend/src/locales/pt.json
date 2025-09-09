@@ -11,20 +11,30 @@
   },
   "work": {
     "title": "trabalhos",
-    "more": "MAIS"
+    "more": "MAIS",
+    "filters": {
+      "all": "todos",
+      "featureFilm": "Longa-metragem",
+      "documentary": "Documentário",
+      "shortFilm": "Curta-metragem",
+      "series": "Série"
+    },
+    "noProjects": "Nenhum projeto encontrado. Adicione alguns projetos no painel admin.",
+    "noProjectsFilter": "Nenhum projeto encontrado para",
+    "loading": "Carregando projetos...",
+    "error": "Erro ao carregar projetos"
   },
   "about": {
     "title": "sobre",
-    "description": "Lucila Hertzriken é uma executiva experiente na indústria cinematográfica, reconhecida por sua visão estratégica, sensibilidade criativa e ampla experiência na entrega de projetos de alto impacto.",
-    "paragraph2": "Ao longo dos últimos 25 anos, ela construiu uma carreira sólida no setor audiovisual, trabalhando com talentos e empresas renomadas no Brasil, Argentina, Estados Unidos e Europa.",
-    "paragraph3": "Sua expertise abrange desde a concepção criativa até a execução de projetos complexos, sempre com foco na excelência e na inovação.",
-    "paragraph4": "Lucila é conhecida por sua capacidade de unir visão artística e estratégia de negócios, criando soluções únicas para cada projeto.",
-    "paragraph5": "Com uma rede internacional de contatos e parcerias, ela facilita co-produções e colaborações entre diferentes mercados.",
-    "paragraph6": "Seu compromisso com a qualidade e a inovação a torna uma referência no mercado audiovisual brasileiro e internacional."
+    "description": "Nos últimos vinte e nove anos, tenho me dedicado a transformar ideias em programas de televisão. Durante esse tempo, liderei todas as etapas do desenvolvimento e da produção, aprendendo cada etapa do processo ao longo do caminho.",
+    "paragraph2": "Minha trajetória inclui passagens por produtoras renomadas, incluindo a Cinefilm, onde atuei como Gerente Geral, supervisionando resultados, expandindo negócios e fornecendo soluções criativas e estratégicas para projetos e clientes.",
+    "paragraph3": "Minha experiência abrange desde a concepção criativa até a execução de projetos complexos, sempre com foco na excelência e na inovação. Trabalho com talentos e empresas renomadas no Brasil, Argentina e Europa.",
+    "paragraph4": "Sou conhecida por minha capacidade de unir visão artística e estratégia de negócios, criando soluções únicas para cada projeto e facilitando co-produções entre diferentes mercados.",
+    "paragraph6": "Meu compromisso com a qualidade e a inovação me torna uma referência no mercado audiovisual brasileiro e internacional, sempre buscando elevar o padrão de excelência em cada projeto."
   },
   "services": {
     "title": "serviços",
-    "grochFilms": {
+    "hertzriken": {
       "title": "Hertzriken",
       "description": "Uma produtora sob medida dedicada a co-produções e serviços internacionais. Especializamo-nos em dar vida a visões criativas através de parcerias estratégicas e abordagens inovadoras de storytelling."
     },
@@ -40,6 +50,8 @@
   },
   "contact": {
     "title": "contato",
+    "getInTouch": "Vamos Conversar",
+    "description": "Estou sempre aberta a novas oportunidades e parcerias criativas. Entre em contato para discutirmos como posso contribuir com seu próximo projeto.",
     "email": "contato@lucilahertzriken.com",
     "phone": "+55 (11) 99999-9999",
     "location": "São Paulo, Brasil",
@@ -52,8 +64,22 @@
       "success": "Mensagem enviada com sucesso!"
     }
   },
+  "project": {
+    "backToWork": "Voltar para Trabalhos",
+    "aboutProject": "Sobre o Projeto",
+    "type": "Tipo",
+    "year": "Ano",
+    "trailer": "Trailer",
+    "technologies": "Tecnologias",
+    "links": "Links",
+    "noDescription": "Descrição não disponível.",
+    "noYear": "Não informado",
+    "loading": "Carregando projeto...",
+    "error": "Erro ao carregar projeto",
+    "notFound": "Projeto não encontrado"
+  },
   "footer": {
-    "description": "Cineasta & Produtora criando histórias visuais convincentes que conectam e inspiram audiências em todo o mundo.",
+    "description": "Produtora Executiva especializada em desenvolvimento, produção e estratégia de conteúdo audiovisual.",
     "quickLinks": "Links Rápidos",
     "services": "Serviços",
     "getInTouch": "Entre em Contato",

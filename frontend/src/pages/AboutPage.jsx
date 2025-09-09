@@ -5,7 +5,7 @@ const AboutPage = () => {
   const { t } = useTranslation();
   
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24" style={{background: 'linear-gradient(135deg, #f1f5f9 0%, #ffffff 50%, rgb(247, 239, 255) 100%)'}}>
       <div className="container mx-auto px-8 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-6xl font-light tracking-wide text-gray-800 mb-16">{t('about.title')}</h1>
@@ -34,14 +34,8 @@ const AboutPage = () => {
                 {t('about.paragraph3')}
               </p>
               
-              <div className="border-l-4 border-gray-300 pl-6 py-4">
-                <p className="text-lg leading-relaxed text-gray-700 italic">
-                {t('about.paragraph4')}
-                </p>
-              </div>
-              
               <p className="text-lg leading-relaxed text-gray-700">
-                {t('about.paragraph5')}
+                {t('about.paragraph4')}
               </p>
               
               <p className="text-lg leading-relaxed text-gray-700">

@@ -26,7 +26,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24" style={{background: 'linear-gradient(135deg, #f1f5f9 0%, #ffffff 50%, rgb (247, 239, 255) 100%)'}}>
       <div className="container mx-auto px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-6xl font-light tracking-wide text-gray-800 mb-16">{t('contact.title')}</h1>
@@ -80,7 +80,7 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300 rounded-lg"
                     />
                   </div>
                   <div>
@@ -94,7 +94,7 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300 rounded-lg"
                     />
                   </div>
                 </div>
@@ -125,13 +125,13 @@ const ContactPage = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 focus:border-gray-500 focus:outline-none transition-colors duration-300 resize-none rounded-lg"
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-gray-800 text-white py-4 px-6 hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  className="w-full bg-gray-800 text-white py-4 px-6 hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center space-x-2 rounded-lg"
                 >
                   <Send className="w-4 h-4" />
                   <span className="tracking-wide">{t('contact.form.submit')}</span>

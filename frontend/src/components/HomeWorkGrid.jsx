@@ -55,7 +55,7 @@ const HomeWorkGrid = () => {
 
   if (loading) {
     return (
-      <section className="py-20 px-8 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="flex justify-center items-center h-64">
             <div className="text-gray-600">Carregando projetos...</div>

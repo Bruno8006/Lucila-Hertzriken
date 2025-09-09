@@ -1,15 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "../hooks/useTranslation";
 import { Film, Briefcase, BookOpen } from "lucide-react";
 
 const ServicesPage = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   
   const services = [
     {
       id: 1,
-      title: t('services.grochFilms.title'),
-      description: t('services.grochFilms.description'),
+      title: t('services.hertzriken.title'),
+      description: t('services.hertzriken.description'),
       icon: <Film className="w-8 h-8" />
     },
     {
@@ -27,7 +29,7 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-24" style={{background: 'linear-gradient(135deg, #f1f5f9 0%, #ffffff 50%,rgb(241, 229, 253) 100%)'}}>
       <div className="container mx-auto px-8 py-16">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-6xl font-light tracking-wide text-gray-800 mb-16">{t('services.title')}</h1>
@@ -63,7 +65,10 @@ const ServicesPage = () => {
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
               {t('services.getInTouch')}
             </p>
-            <button className="px-8 py-3 bg-gray-800 text-white text-sm tracking-wide hover:bg-gray-700 transition-colors duration-300 rounded-full">
+            <button 
+              onClick={() => navigate('/contact')}
+              className="px-8 py-3 bg-gray-800 text-white text-sm tracking-wide hover:bg-gray-700 transition-colors duration-300 rounded-full"
+            >
               {t('services.getInTouch')}
             </button>
           </div>

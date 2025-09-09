@@ -51,10 +51,10 @@ const ProjectDetailPage = () => {
         if (foundProject) {
           setProject(foundProject);
         } else {
-          setError('Projeto não encontrado');
+          setError(t('project.notFound'));
         }
       } catch (err) {
-        setError('Erro ao carregar projeto');
+        setError(t('project.error'));
         console.error('Erro ao buscar projeto:', err);
       } finally {
         setLoading(false);
@@ -71,7 +71,7 @@ const ProjectDetailPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Carregando projeto...</p>
+          <p className="mt-4 text-gray-600">{t('project.loading')}</p>
         </div>
       </div>
     );
@@ -81,13 +81,13 @@ const ProjectDetailPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Projeto não encontrado</h1>
-          <p className="text-gray-600 mb-6">O projeto que você está procurando não existe.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('project.notFound')}</h1>
+          <p className="text-gray-600 mb-6">{t('project.notFound')}</p>
           <button
             onClick={() => navigate('/trabalhos')}
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            Voltar para Trabalhos
+            {t('project.backToWork')}
           </button>
         </div>
       </div>
@@ -95,7 +95,7 @@ const ProjectDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen pt-20" style={{background: 'linear-gradient(135deg, #f1f5f9 0%, #ffffff 50%,rgb(247, 239, 255) 100%)'}}>
       {/* Header */}
       <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-4">
@@ -106,19 +106,12 @@ const ProjectDetailPage = () => {
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Voltar para Trabalhos
+{t('project.backToWork')}
           </button>
           
-          <div className="flex items-center space-x-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-              <span className="text-3xl font-bold text-white">
-                {project.title.charAt(0).toUpperCase()}
-              </span>
-            </div>
-            <div>
-              <h1 className="text-4xl font-bold text-white mb-2">{project.title}</h1>
-              <p className="text-xl text-gray-300">{project.type}</p>
-            </div>
+          <div>
+            <h1 className="text-4xl font-bold text-white mb-2">{project.title}</h1>
+            <p className="text-xl text-gray-300">{project.type}</p>
           </div>
         </div>
       </div>
@@ -143,27 +136,27 @@ const ProjectDetailPage = () => {
           {/* Details */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-3">Sobre o Projeto</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">{t('project.aboutProject')}</h2>
               <p className="text-gray-700 leading-relaxed">
-                {project.description || 'Descrição não disponível.'}
+                {project.description || t('project.noDescription')}
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">Tipo</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">{t('project.type')}</h3>
                 <p className="text-gray-600">{project.type}</p>
               </div>
               
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">Ano</h3>
-                <p className="text-gray-600">{project.year || 'Não informado'}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">{t('project.year')}</h3>
+                <p className="text-gray-600">{project.year || t('project.noYear')}</p>
               </div>
             </div>
 
             {project.trailer_url && (
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Trailer</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">{t('project.trailer')}</h3>
                 <div className="bg-gray-100 rounded-lg p-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
                     <iframe
@@ -175,16 +168,6 @@ const ProjectDetailPage = () => {
                       allowFullScreen
                     ></iframe>
                   </div>
-                  <p className="text-sm text-gray-600 mt-2">
-                    <a 
-                      href={project.trailer_url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      Ver no YouTube/Vimeo
-                    </a>
-                  </p>
                 </div>
               </div>
             )}
