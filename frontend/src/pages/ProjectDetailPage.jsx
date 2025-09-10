@@ -97,7 +97,7 @@ const ProjectDetailPage = () => {
   return (
     <div className="min-h-screen pt-20" style={{background: 'linear-gradient(135deg, #f1f5f9 0%, #ffffff 50%,rgb(247, 239, 255) 100%)'}}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg">
+      <div className="shadow-lg" style={{background: 'linear-gradient(135deg, #08182e 0%, #071326 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-4">
           <button
             onClick={() => navigate('/trabalhos')}
