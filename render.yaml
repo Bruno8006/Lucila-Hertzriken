@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: lucila-hertzriken-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://lucila:lucila123@cluster0.mongodb.net/
+      - key: DB_NAME
+        value: lucila_portfolio
+      - key: ADMIN_USERNAME
+        value: lucila
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: SECRET_KEY
+        value: your-super-secret-key-here-change-in-production
+      - key: CORS_ORIGINS
+        value: https://lucila-hertzriken.vercel.app,http://localhost:3000
