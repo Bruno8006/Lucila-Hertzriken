@@ -7,8 +7,8 @@ const Footer = () => {
   const { t } = useTranslation();
   
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-8 py-16">
+    <footer className="text-white" style={{background: 'linear-gradient(135deg, #08182e 0%, #071326 100%)'}}>
+      <div className="container mx-auto px-8 py-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
           <div className="space-y-6">
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-16 pt-8">
+        <div className="border-t border-gray-800 mt-8 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Lucila Hertzriken. {t('footer.copyright')}
