@@ -66,7 +66,7 @@ const ServicesPage = () => {
               {t('services.getInTouch')}
             </p>
             <button 
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/contato')}
               className="px-8 py-3 bg-gray-800 text-white text-sm tracking-wide hover:bg-gray-700 transition-colors duration-300 rounded-full"
             >
               {t('services.getInTouch')}
