@@ -12,6 +12,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="/*" element={
               <>
                 <Header />

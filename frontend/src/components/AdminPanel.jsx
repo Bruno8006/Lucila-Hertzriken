@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, ArrowUp, ArrowDown, LogOut, Eye } from 'lucide-react';
+import { Plus, Edit, Trash2, ArrowUp, ArrowDown, LogOut, Eye, Settings } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 import ProjectForm from './ProjectForm';
 
@@ -9,6 +10,7 @@ const AdminPanel = ({ onLogout }) => {
   const [showForm, setShowForm] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -125,6 +127,13 @@ const AdminPanel = ({ onLogout }) => {
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Novo Projeto
+              </button>
+              <button
+                onClick={() => navigate('/settings')}
+                className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-300"
+              >
+                <Settings className="h-4 w-4 mr-2" />
+                Configurações
               </button>
               <button
                 onClick={handleLogout}

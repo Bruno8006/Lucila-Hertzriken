@@ -53,7 +53,25 @@ const upload = multer({
 // Configuração de segurança
 const SECRET_KEY = process.env.SECRET_KEY || 'your-super-secret-key-here';
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'lucila';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+let ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+
+// Função para carregar senha do arquivo de configuração
+async function loadAdminPassword() {
+  try {
+    const configFile = path.join(__dirname, 'config.json');
+    const configData = await fs.readFile(configFile, 'utf8');
+    const config = JSON.parse(configData);
+    if (config.admin_password) {
+      ADMIN_PASSWORD = config.admin_password;
+    }
+  } catch (error) {
+    // Usar senha padrão se arquivo não existir
+    console.log('Usando senha padrão do ambiente');
+  }
+}
+
+// Carregar senha na inicialização
+loadAdminPassword();
 
 // Arquivo de dados (GRATUITO!)
 const PROJECTS_FILE = path.join(__dirname, 'projects.json');
@@ -302,6 +320,89 @@ app.post('/api/projects/:id/reorder', authenticateToken, async (req, res) => {
       res.status(500).json({ error: 'Erro ao reordenar projeto' });
     }
   } catch (error) {
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+});
+
+// Mudança de senha
+app.post('/api/change-password', authenticateToken, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    
+    // Verificar senha atual
+    if (currentPassword !== ADMIN_PASSWORD) {
+      return res.status(400).json({ error: 'Senha atual incorreta' });
+    }
+    
+    // Validar nova senha
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ error: 'Nova senha deve ter pelo menos 6 caracteres' });
+    }
+    
+    // Atualizar senha no arquivo de configuração
+    const configFile = path.join(__dirname, 'config.json');
+    let config = {};
+    
+    try {
+      const configData = await fs.readFile(configFile, 'utf8');
+      config = JSON.parse(configData);
+    } catch (error) {
+      // Arquivo não existe, criar novo
+      config = {
+        admin_username: ADMIN_USERNAME,
+        admin_password: ADMIN_PASSWORD,
+        secret_key: SECRET_KEY,
+        cors_origins: process.env.CORS_ORIGINS || '*'
+      };
+    }
+    
+    // Atualizar senha
+    config.admin_password = newPassword;
+    
+    // Salvar configuração
+    await fs.writeFile(configFile, JSON.stringify(config, null, 2));
+    
+    // Recarregar senha na memória
+    ADMIN_PASSWORD = newPassword;
+    
+    res.json({ 
+      message: 'Senha alterada com sucesso!',
+      success: true 
+    });
+    
+  } catch (error) {
+    console.error('Erro ao alterar senha:', error);
+    res.status(500).json({ error: 'Erro no servidor' });
+  }
+});
+
+// Obter configurações (apenas para admin)
+app.get('/api/config', authenticateToken, async (req, res) => {
+  try {
+    const configFile = path.join(__dirname, 'config.json');
+    let config = {};
+    
+    try {
+      const configData = await fs.readFile(configFile, 'utf8');
+      config = JSON.parse(configData);
+    } catch (error) {
+      // Usar valores padrão se arquivo não existir
+      config = {
+        admin_username: ADMIN_USERNAME,
+        admin_password: '***', // Não expor senha
+        secret_key: '***', // Não expor chave secreta
+        cors_origins: process.env.CORS_ORIGINS || '*'
+      };
+    }
+    
+    // Não expor informações sensíveis
+    config.admin_password = '***';
+    config.secret_key = '***';
+    
+    res.json(config);
+    
+  } catch (error) {
+    console.error('Erro ao obter configurações:', error);
     res.status(500).json({ error: 'Erro no servidor' });
   }
 });
