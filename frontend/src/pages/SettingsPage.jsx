@@ -44,7 +44,7 @@ const SettingsPage = () => {
     }
 
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('admin_token');
       const response = await fetch('https://lucila-hertzriken-backend.onrender.com/api/change-password', {
         method: 'POST',
         headers: {
@@ -60,7 +60,7 @@ const SettingsPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess('Senha alterada com sucesso!');
+        setSuccess('Senha alterada com sucesso! Redirecionando...');
         setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
@@ -69,6 +69,11 @@ const SettingsPage = () => {
           title: "Sucesso!",
           description: "Senha alterada com sucesso!",
         });
+        
+        // Redirecionar para admin após 1 segundos
+        setTimeout(() => {
+          navigate('/admin');
+        }, 1000);
       } else {
         setError(data.error || 'Erro ao alterar senha');
       }
@@ -81,8 +86,8 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 py-12 px-4">
-      <div className="max-w-md mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 py-20 px-4">
+      <div className="max-w-md mx-auto mt-16">
         <Card className="shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-gray-800">

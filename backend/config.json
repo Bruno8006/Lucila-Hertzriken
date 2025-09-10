@@ -1,0 +1,6 @@
+{
+  "admin_username": "lucila",
+  "admin_password": "admin123",
+  "secret_key": "your-super-secret-key-here",
+  "cors_origins": "http://localhost:3000,https://frontend-gray-pi-15.vercel.app"
+}
